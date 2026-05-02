@@ -1,11 +1,14 @@
 #!/bin/bash
 
-    echo "Deploy Flask..."
-	cd  /home/david/flask
+echo "--- 1. Подтягиваем свежий код из Git ---"
+git pull origin main
 
-	git pull origin main
+echo "--- 2. Останавливаем старые контейнеры ---"
+docker compose down
 
-	docker compose down
-	docker compose up -d --build
+echo "--- 3. Собираем и запускаем проект ---"
+docker compose up -d --build
 
-    echo "Deploy done!"
+echo "--- 4. Проверяем статус ---"
+docker compose ps
+
