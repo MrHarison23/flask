@@ -5,12 +5,11 @@ services:
     restart: always
 
   web:
-    image: nginx
+    image: cr.yandex/mirror/nginx:latest
     container_name: web
     ports:
       - "8080:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - app
-
