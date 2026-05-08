@@ -1,5 +1,5 @@
 with:
-  host: 0.tcp.ngrok.io
-  port: XXXXX
-  username: david
+  host: ${{ secrets.HOST }}
+  username: root
   key: ${{ secrets.SSH_PRIVATE_KEY }}
+  port: 22
