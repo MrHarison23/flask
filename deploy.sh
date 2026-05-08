@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /root/flask
-
 git pull
 
 docker-compose down
