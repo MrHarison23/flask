@@ -20,5 +20,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            cd /home/root/flask
+            cd /root/flask
             ./deploy.sh
