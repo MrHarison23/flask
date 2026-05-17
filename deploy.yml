@@ -1,24 +1,24 @@
-name: Deploy
+name: Deploy Flask App
 
 on:
   push:
     branches:
-      - main
+      - main  # Деплой будет запускаться при пуше в ветку main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
           script: |
             cd /root/flask
             ./deploy.sh
