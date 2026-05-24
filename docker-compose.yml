@@ -5,7 +5,7 @@ services:
     restart: always
 
   web:
-    image: nginx:latest
+    image: cr.yandex/mirror/nginx:latest
     container_name: web
     restart: always
     ports:
