@@ -5,8 +5,9 @@ services:
     restart: always
 
   web:
-    image: cr.yandex/mirror/nginx:latest
+    image: nginx:latest
     container_name: web
+    restart: always
     ports:
       - "8080:80"
     volumes:
